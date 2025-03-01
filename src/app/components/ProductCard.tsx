@@ -1,4 +1,5 @@
 import { Star, Plus } from "lucide-react";
+import Image from "next/image";
 
 interface Product {
   id: number;
@@ -18,7 +19,10 @@ export default function ProductCard({ product }: { product?: Product }) {
     <div className="bg-[#1E1E1E] rounded-2xl p-4 text-white w-full h-[220px] flex flex-col cursor-pointer">
       {/* Image */}
       <div className="w-full h-[90px]">
-        <img
+        <Image
+          width={100}
+          height={100}
+          loader={({ src }) => src} 
           src={product.thumbnail || "/placeholder.svg"}
           alt={product.title}
           className="w-full h-full object-cover rounded-lg"

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { ChevronLeft, Plus, Minus, Star } from "lucide-react";
+import Image from "next/image";
 
 interface Product {
   id: number;
@@ -51,9 +52,12 @@ export default function ProductDetailComponent({ productId }: ProductDetailProps
           >
             <ChevronLeft className="w-[24px] h-[24px]" />
           </button>
-          <img
+          <Image
+            width={100}
+            height={100}
             src={product.thumbnail}
             alt={product.title}
+            loader={({ src }) => src} 
             className="w-full h-full object-cover mt-[30px]"
           />
         </div>
